@@ -2,6 +2,23 @@
 # Created by https://www.toptal.com/developers/gitignore/api/netbeans,eclipse,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=netbeans,eclipse,intellij
 
+# Binaries
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.war
+*.ear
+*.sar
+*.class
+
+# Maven 
+target/
+
 ### Eclipse ###
 .metadata
 bin/
