@@ -44,11 +44,13 @@
                     <c:if test="${not empty requestScope.CUSTOMER}">
                         <c:set var="customer" value="${requestScope.CUSTOMER}" />
                         <h1 style="text-decoration: underline">Thông tin khách hàng</h1>
-                        <h3>Tên : ${customer.name}</h3>
-                        <h3>Ngày Sinh : ${customer.birthdate}</h3>
-                        <h3>Giới tính : ${customer.sex}</h3>
-                        <h3>Số điện thoại : ${customer.phone}</h3>
-                        <h3>Email : ${customer.email}</h3>
+                        <form>
+                            <h3>Tên : ${customer.name}</h3>
+                            <h3>Ngày Sinh : ${customer.birthdate}</h3>
+                            <h3>Giới tính : ${customer.sex}</h3>
+                            <h3>Số điện thoại : ${customer.phone}</h3>
+                            <h3>Email : ${customer.email}</h3>   
+                        </form>
                     </c:if>
                 </div>
             </div>
