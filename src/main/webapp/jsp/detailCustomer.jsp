@@ -17,11 +17,12 @@
         <!--CSS-->
         <link rel="stylesheet" type="text/css" href="resources/css/home.css">
         <link rel="stylesheet" type="text/css" href="resources/css/loader.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/customer-detail.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!--JS-->
         <script src="resources/js/loader.js"></script>
         <script src="resources/js/home.js"></script>
-        <title>Quản lý phòng</title>       
+        <title>Quản lý phòng</title>    
     </head>
     <body onload="loader()">
         <div id="loader" class="loader"></div>
@@ -44,11 +45,45 @@
                     <c:if test="${not empty requestScope.CUSTOMER}">
                         <c:set var="customer" value="${requestScope.CUSTOMER}" />
                         <h1 style="text-decoration: underline">Thông tin khách hàng</h1>
-                        <h3>Tên : ${customer.name}</h3>
-                        <h3>Ngày Sinh : ${customer.birthdate}</h3>
-                        <h3>Giới tính : ${customer.sex}</h3>
-                        <h3>Số điện thoại : ${customer.phone}</h3>
-                        <h3>Email : ${customer.email}</h3>
+                        <form action="update-customer" method="POST">
+                            <input type="hidden" name="id" value="${customer.id}" />
+                            <h3>Tên : <input type="text" name="name" value="${customer.name}" placeholder="Tên Khách Hàng"/></h3>
+                            <h3>Ngày Sinh : 
+                                <input type="date" name="birthdate" value="${customer.birthdate}" />
+                            </h3>
+                            <h3>
+                                Giới tính : 
+                                <select name="sex">
+                                    <c:if test="${customer.sex}">
+                                        <option value="${customer.sex}" selected>Nam</option>
+                                        <option value="${customer.sex}" >Nữ</option>
+                                    </c:if>
+                                    <c:if test="${not customer.sex}">
+                                        <option value="${customer.sex}" >Nam</option>
+                                        <option value="${customer.sex}" selected>Nữ</option>
+                                    </c:if>                                        
+                                </select>
+                            </h3>
+                            <h3>
+                                Số điện thoại :
+                                <c:if test="${not empty customer.phone}">
+                                    <input type="text" name="phone" value="${customer.phone}" placeholder="Số Điện Thoại (nếu có)" pattern="[0-9]{10}" title="Hãy nhập đúng số điện thoại !"/>
+                                </c:if>
+                                <c:if test="${empty customer.phone}">
+                                    <input type="text" name="phone" value="" placeholder="Số Điện Thoại (nếu có)" pattern="[0-9]{10}" title="Hãy nhập đúng số điện thoại !"/>
+                                </c:if>
+                            </h3>
+                            <h3>
+                                Email : 
+                                <c:if test="${not empty customer.email}">
+                                    <input type="email" name="email" value="${customer.email}" placeholder="Email (nếu có)"/>
+                                </c:if>
+                                <c:if test="${empty customer.email}">
+                                    <input type="email" name="email" value="" placeholder="Email (nếu có)"/>
+                                </c:if>
+                            </h3>
+                                <input type="submit" value="Edit">
+                            </form>
                     </c:if>
                 </div>
             </div>
