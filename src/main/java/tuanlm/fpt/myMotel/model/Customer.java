@@ -41,8 +41,7 @@ public class Customer implements Serializable{
     public Customer() {
     }
 
-    public Customer(int id, String name, Date date, boolean sex) {
-        this.id = id;
+    public Customer(String name, Date date, boolean sex) {
         this.name = name;
         this.birthdate = date;
         this.sex = sex;

@@ -5,7 +5,8 @@
  */
 package tuanlm.fpt.myMotel.service;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tuanlm.fpt.myMotel.model.Customer;
@@ -24,17 +25,18 @@ public class CustomerService {
         return customerRepository.findById(id);
     }
     
-    public Customer updateCustomer(int id, String name, Date birthdate, boolean sex, String phone, String email) {
+    public Customer updateCustomer(int id, String name, String birthdate, boolean sex, String phone, String email) throws ParseException {
         Customer customer = this.getCustomerById(id);
         if (customer != null) {
             customer.setName(name);
-            customer.setBirthdate(birthdate);
+            customer.setBirthdate(new SimpleDateFormat("yyyy-MM-dd").parse(birthdate));
             customer.setSex(sex);
             String phoneRecord = ("".equals(phone)) ? null : phone; 
             customer.setPhone(phoneRecord);
             String emailRecord = ("".equals(email)) ? null : email;
             customer.setEmail(emailRecord);
-            return customerRepository.save(customer);
+
+            if (customerRepository.save(customer) != null) return customerRepository.findById(id);
         }
         return null;
     }

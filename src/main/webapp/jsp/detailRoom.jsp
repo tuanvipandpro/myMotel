@@ -17,10 +17,12 @@
         <!--CSS-->
         <link rel="stylesheet" type="text/css" href="resources/css/home.css">
         <link rel="stylesheet" type="text/css" href="resources/css/loader.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/popup-form.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!--JS-->
         <script src="resources/js/loader.js"></script>
         <script src="resources/js/home.js"></script>
+        <script src="resources/js/popup.js"></script>
         <title>Quản lý phòng</title>       
     </head>
     <body onload="loader()">
@@ -50,7 +52,7 @@
                             - Trạng thái : 
                             <c:if test="${room.status_id eq 5}">Cho thuê</c:if>
                             <c:if test="${room.status_id eq 6}">Đang trống</c:if>
-                        </h3>
+                            </h3>
                         <c:if test="${room.status_id eq 5}">
                             <h3>- Khách thuê : </h3>
                             <c:forEach items="${customerList}" var="customer">
@@ -58,7 +60,32 @@
                             </c:forEach>
                         </c:if>
                     </c:if>
-                </div>
+<!--                                
+                    <button id="myBtn">Thêm mới khách hàng</button>
+                    <div id="myModal" class="modal">
+                         Modal content 
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form action="#" method="POST">
+                                <label>Tên</label>
+                                <input type="text" value="" name="name"/><br/>
+                                <label>Ngày Sinh</label>
+                                <input type="date" value="" name="username"/><br/>
+                                <label>Giới Tính</label>
+                                <select name="sex">
+                                    <option value="true">Nam</option>
+                                    <option value="false">Nữ</option>
+                                </select><br/>
+                                <label>Số Điện Thoại</label>
+                                <input type="text" value="" name="name"/><br/>
+                                <label>E-Mail</label>
+                                <input type="text" value="" name="name"/><br/>      
+                                <input type="submit" value="Thêm Khách Hàng"/>
+                            </form>
+                        </div>
+                    </div> 
+-->
+                </div>              
             </div>
         </div>
     </body>

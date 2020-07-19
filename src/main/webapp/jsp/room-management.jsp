@@ -45,51 +45,65 @@
                     <c:if test="${not empty sessionScope.ROOM_LIST}">
                         <c:set var="list" value="${sessionScope.ROOM_LIST}"/>
                         <div class="table-content">
-                            <form action="#" method="POST">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>Số Phòng</th>
-                                            <th>Trạng Thái</th>
-                                            <th>Chi Tiết</th>
-                                            <th>Cập Nhật</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach var="room" items="${list}" varStatus="counter">
-                                            <tr>
-                                                <form action="update-room" method="POST">  
-                                                    <input type="hidden" name="id" value="${room.id}" />
-                                                    <td>${counter.count}</td>
-                                                    <td>
-                                                        <input type="text" maxlength="3" name="roomNumber" value="${room.room_number}" />
-                                                    </td>
-                                                    <td>
-                                                        <select name="status">
-                                                            <c:if test="${room.status_id eq 5}">
-                                                                <option value="5" selected>Cho Thuê</option>
-                                                                <option value="6" >Đang Trống</option>
-                                                            </c:if>
-                                                            <c:if test="${room.status_id eq 6}">
-                                                                <option value="5">Cho Thuê</option>
-                                                                <option value="6" selected>Đang Trống</option>
-                                                            </c:if>
-                                                        </select>
-                                                    </td>
-                                                    <td> <input style="width: 60%" type="submit" value="Cập Nhật" onclick="return confirm('Cập nhật thông tin của phòng này ?')"/> </td>
-                                                </form>
-                                                <form action="view-room" method="GET">
-                                                    <td> 
-                                                        <input type="hidden" name="id" value="${room.id}" />
-                                                        <input type="submit" value="View"/>
-                                                    </td>
-                                                </form>
-                                            </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table> 
-                            </form>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Số Phòng</th>
+                                        <th>Trạng Thái</th>
+                                        <th>Giá (VND)</th>
+                                        <th>Cập Nhật</th>
+                                        <th>Chi Tiết</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="room" items="${list}" varStatus="counter">
+                                    <tr>
+                                        <form action="update-room" method="POST">
+                                            <input type="hidden" name="id" value="${room.id}" />
+                                            <td>${counter.count}</td>
+                                            <td><input type="text" maxlength="3" name="roomNumber" value="${room.room_number}" /></td>
+                                            <td>
+                                                <select name="status">
+                                                    <c:if test="${room.status_id eq 5}">
+                                                        <option value="5" selected>Cho Thuê</option>
+                                                        <option value="6" >Đang Trống</option>
+                                                    </c:if>
+                                                    <c:if test="${room.status_id eq 6}">
+                                                        <option value="5">Cho Thuê</option>
+                                                        <option value="6" selected>Đang Trống</option>
+                                                    </c:if>
+                                                </select>
+                                            </td>
+                                            <td><input type="number" name="price" value="${room.price}" min="700000" max="10000000"/></td>
+                                            <td><input style="width: 75%" type="submit" value="Cập Nhật" onclick="return confirm('Cập nhật thông tin của phòng này ?')"/></td>
+                                        </form>
+                                        <form action="view-room" method="GET">
+                                            <td> 
+                                                <input type="hidden" name="id" value="${room.id}" />
+                                                <input type="submit" value="View"/>
+                                            </td>
+                                        </form>                                    
+                                    </tr>
+                                </c:forEach>
+                                    <tr>
+                                        <form action="add-room" method="POST">
+                                            <td>Thêm</td>
+                                            <td><input type="text" maxlength="3" name="roomNumber" value="" required/></td>
+                                            <td>
+                                                <select name="status">
+                                                    <option value="5" >Cho Thuê</option>
+                                                    <option value="6" selected>Đang Trống</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="price" value="700000" min="700000" max="10000000" required/>
+                                            </td>
+                                            <td colspan="2"><input style="width: 90%" type="submit" value="Thêm Mới Phòng" onclick="return confirm('Bạn có chắc muốn thêm mới ?')"/></td>
+                                        </form>
+                                    </tr>
+                                </tbody>
+                            </table> 
                         </div>
                     </c:if>
                     <c:if test="${empty sessionScope.ROOM_LIST}">
