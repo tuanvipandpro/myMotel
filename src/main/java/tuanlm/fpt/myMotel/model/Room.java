@@ -35,8 +35,7 @@ public class Room implements Serializable {
     public Room() {
     }
 
-    public Room(int id, String room_number, String owner, int status_id, int price) {
-        this.id = id;
+    public Room(String room_number, String owner, int status_id, int price) {
         this.room_number = room_number;
         this.owner = owner;
         this.status_id = status_id;

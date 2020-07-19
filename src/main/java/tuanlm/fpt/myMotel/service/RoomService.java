@@ -46,6 +46,10 @@ public class RoomService {
         return list;
     }
     
+    public boolean createRoom (String roomNumber, String owner, int price, int status) {
+        return (roomRepository.save(new Room(roomNumber, owner, status, price)) != null); 
+    }
+    
     public boolean updateRoom (int id, String roomNumber, int price, int status) {
         Room room = roomRepository.findById(id);
         room.setStatus_id(status);
