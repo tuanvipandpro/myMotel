@@ -46,10 +46,11 @@ public class RoomService {
         return list;
     }
     
-    public boolean updateRoom (int id, String roomNumber, int status) {
+    public boolean updateRoom (int id, String roomNumber, int price, int status) {
         Room room = roomRepository.findById(id);
         room.setStatus_id(status);
         room.setRoom_number(roomNumber);
+        room.setPrice(price);
         return (roomRepository.save(room) != null);
     }
 }

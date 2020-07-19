@@ -25,10 +25,15 @@ public class RoomController {
     RoomService roomService;
     
     @PostMapping(value = "/update-room")
-    public String updateRoom (@RequestParam int id, @RequestParam int status, @RequestParam String roomNumber,
+    public String updateRoom (
+            @RequestParam int id, 
+            @RequestParam int status, 
+            @RequestParam String roomNumber,
+            @RequestParam int price,
             HttpServletRequest request, Model model) {
+        System.out.println("updateRoom");
         if (request.getSession(false) != null) {
-            roomService.updateRoom(id, roomNumber, status);
+            roomService.updateRoom(id, roomNumber, price, status);
             Account user = (Account) request.getSession(false).getAttribute("USER");
             request.getSession(false).setAttribute("ROOM_LIST", roomService.getRoomListByOwner(user.getUsername()));
         }
