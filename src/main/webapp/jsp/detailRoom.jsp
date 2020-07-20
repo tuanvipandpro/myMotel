@@ -22,10 +22,9 @@
         <!--JS-->
         <script src="resources/js/loader.js"></script>
         <script src="resources/js/home.js"></script>
-        <script src="resources/js/popup.js"></script>
         <title>Quản lý phòng</title>       
     </head>
-    <body onload="loader()">
+    <body onload="loader()">        
         <div id="loader" class="loader"></div>
         <div id="myDiv" class="content" style="display: none">
             <div class="home-container">
@@ -59,34 +58,33 @@
                                 <h3 style="margin-left: 5%">+ <a href="view-customer?id=${customer.id}">${customer.name}</a> </h3>
                             </c:forEach>
                         </c:if>
-                    </c:if>
-<!--                                
-                    <button id="myBtn">Thêm mới khách hàng</button>
-                    <div id="myModal" class="modal">
-                         Modal content 
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <form action="#" method="POST">
-                                <label>Tên</label>
-                                <input type="text" value="" name="name"/><br/>
-                                <label>Ngày Sinh</label>
-                                <input type="date" value="" name="username"/><br/>
-                                <label>Giới Tính</label>
-                                <select name="sex">
-                                    <option value="true">Nam</option>
-                                    <option value="false">Nữ</option>
-                                </select><br/>
-                                <label>Số Điện Thoại</label>
-                                <input type="text" value="" name="name"/><br/>
-                                <label>E-Mail</label>
-                                <input type="text" value="" name="name"/><br/>      
-                                <input type="submit" value="Thêm Khách Hàng"/>
-                            </form>
+                        <button id="myBtn">Thêm mới khách hàng</button>
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <form action="add-customer-to-room" method="POST">
+                                    <input type="hidden" name="roomId" value="${room.id}" />
+                                    <label>Tên</label>
+                                    <input type="text" value="" name="name" placeholder="Tên" required/><br/>
+                                    <label>Ngày Sinh</label>
+                                    <input type="date" value="" name="birthdate" placeholder="Ngày Sinh" required/><br/>
+                                    <label>Giới Tính</label>
+                                    <select name="sex">
+                                        <option value="true">Nam</option>
+                                        <option value="false">Nữ</option>
+                                    </select><br/>
+                                    <label>Số Điện Thoại</label>
+                                    <input type="text" placeholder="Số điện thoại (nếu có)" value="" name="phone" pattern="[0-9]{10}" title="Hãy nhập đúng số điện thoại !"/><br/>
+                                    <label>E-Mail</label>
+                                    <input type="email" value="" name="email" placeholder="Email (Nếu có)"/><br/>      
+                                    <input type="submit" value="Thêm Khách Hàng"/>
+                                </form>
+                            </div>
                         </div>
-                    </div> 
--->
+                    </c:if>
                 </div>              
-            </div>
+            </div>           
         </div>
+        <script src="resources/js/popup.js"></script>
     </body>
 </html>

@@ -41,20 +41,19 @@
                         <span class="login100-form-title p-b-33">Đăng nhập</span>
                         <c:if test="${not empty param.error}"> <span class="login100-form-title p-b-33"><p style="color: red">Tài khoản hoặc mật khẩu không chính xác !!!</p></span> </c:if>
                             <div class="wrap-input100">
-                                <!--<input class="input100" type="text" name="username" placeholder="Username">-->
-                            <form:input path="username" name="username" id="username" cssClass="input100" placeholder="Tài Khoản"/>
+                            <form:input path="username" name="username" id="username" cssClass="input100" placeholder="Tài Khoản" tabindex="1"/>
                             <span class="focus-input100-1"></span>
                             <span class="focus-input100-2"></span>
                         </div>
 
                         <div class="wrap-input100 rs1">
                             <!--<input class="input100" type="password" name="password" placeholder="Password">-->
-                            <form:password path="password" name="password" id="password" cssClass="input100" placeholder="Mật khẩu"/>
+                            <form:password path="password" name="password" id="password" cssClass="input100" placeholder="Mật khẩu" tabindex="2"/>
                             <span class="focus-input100-1"></span>
                             <span class="focus-input100-2"></span>
                         </div>     
                         <div class="container-login100-form-btn m-t-20">
-                            <button class="login100-form-btn">Đăng nhập</button>
+                            <button class="login100-form-btn" tabindex="3">Đăng nhập</button>
                         </div>                            
                     </form:form>
                 </div>

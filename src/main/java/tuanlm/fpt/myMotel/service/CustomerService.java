@@ -40,4 +40,11 @@ public class CustomerService {
         }
         return null;
     }
+    
+    public Customer addCustomer (String name, String birthdate, boolean sex, String phone, String email) throws ParseException {
+        Customer customer = new Customer(name, new SimpleDateFormat("yyyy-MM-dd").parse(birthdate), sex);
+        if (!"".equals(phone)) customer.setPhone(phone);
+        if (!"".equals("email")) customer.setEmail(email);
+        return customerRepository.save(customer);
+    }
 }

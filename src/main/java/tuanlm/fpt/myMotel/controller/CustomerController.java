@@ -42,10 +42,8 @@ public class CustomerController {
             @RequestParam String phone,
             @RequestParam String email,
             HttpServletRequest request, Model model) {
-
-        Customer customer;
         try {
-            customer = customerService.updateCustomer(id, name, birthdate, sex, phone, email);
+            Customer customer = customerService.updateCustomer(id, name, birthdate, sex, phone, email);
             if (customer != null) {
                 request.setAttribute("CUSTOMER", customer);
             } 
@@ -56,7 +54,32 @@ public class CustomerController {
         catch (ParseException ex) {
             logger.error("CustomerController (updateCustomer): " + ex.getMessage());
         }
-
+        
         return "detailCustomer";
     }
+    
+    @RequestMapping(value = "/add-customer-to-room")
+    public String addCustomerToRoom(
+            @RequestParam int roomId,
+            @RequestParam String name,
+            @RequestParam String birthdate,
+            @RequestParam boolean sex,
+            @RequestParam String phone,
+            @RequestParam String email,
+            HttpServletRequest request, Model model) {
+        try {
+            Customer customer = customerService.addCustomer(name, birthdate, sex, phone, email);
+            if (customer != null) {
+                System.out.println("Customer ID : " + customer.getId());
+            } 
+            else {
+                return "error";
+            }
+        } 
+        catch (ParseException ex) {
+            logger.error("CustomerController (updateCustomer): " + ex.getMessage());
+        }
+        
+        return "detailRoom?id=" + roomId;
+    }    
 }
