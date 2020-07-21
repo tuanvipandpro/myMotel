@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import tuanlm.fpt.myMotel.model.Customer;
 import tuanlm.fpt.myMotel.service.CustomerService;
+import tuanlm.fpt.myMotel.service.RoomService;
 import tuanlm.fpt.myMotel.utils.Constant;
 
 /**
@@ -25,6 +26,8 @@ import tuanlm.fpt.myMotel.utils.Constant;
 public class CustomerController {
     @Autowired
     CustomerService customerService;
+    @Autowired
+    RoomService roomService;
     Logger logger = Constant.logger;
 
     @RequestMapping(value = "/view-customer")
@@ -42,10 +45,8 @@ public class CustomerController {
             @RequestParam String phone,
             @RequestParam String email,
             HttpServletRequest request, Model model) {
-
-        Customer customer;
         try {
-            customer = customerService.updateCustomer(id, name, birthdate, sex, phone, email);
+            Customer customer = customerService.updateCustomer(id, name, birthdate, sex, phone, email);
             if (customer != null) {
                 request.setAttribute("CUSTOMER", customer);
             } 
@@ -56,7 +57,34 @@ public class CustomerController {
         catch (ParseException ex) {
             logger.error("CustomerController (updateCustomer): " + ex.getMessage());
         }
-
+        
         return "detailCustomer";
     }
+    
+    @RequestMapping(value = "/add-customer-to-room")
+    public String addCustomerToRoom(
+            @RequestParam int roomId,
+            @RequestParam String name,
+            @RequestParam String birthdate,
+            @RequestParam boolean sex,
+            @RequestParam String phone,
+            @RequestParam String email,
+            HttpServletRequest request, Model model) {
+        try {
+            Customer customer = customerService.addCustomer(name, birthdate, sex, phone, email);
+            if (customer != null) {
+                roomService.addCustomerToRoom(roomId, customer.getId());
+                request.setAttribute("ROOM", roomService.getRoomById(roomId));
+                request.setAttribute("CUSTOMER_LIST", roomService.getCustomerListByRoomId(roomId));   
+                return "detailRoom";
+            } 
+            else {
+                return "error";
+            }
+        } 
+        catch (ParseException ex) {
+            logger.error("CustomerController (updateCustomer): " + ex.getMessage());
+            return "error";
+        }
+    }    
 }

@@ -31,8 +31,7 @@ public class RoomCustomer implements Serializable{
     public RoomCustomer() {
     }
 
-    public RoomCustomer(int id, int roomId, int customerId) {
-        this.id = id;
+    public RoomCustomer(int roomId, int customerId) {
         this.roomId = roomId;
         this.customerId = customerId;
     }

@@ -57,4 +57,11 @@ public class RoomService {
         room.setPrice(price);
         return (roomRepository.save(room) != null);
     }
+    
+    public boolean addCustomerToRoom (int room_id, int customer_id) {
+        RoomCustomer roomCustomer = new RoomCustomer();
+        roomCustomer.setRoomId(room_id);
+        roomCustomer.setCustomerId(customer_id);
+        return (roomCustomerRepository.save(roomCustomer) != null);
+    }
 }
