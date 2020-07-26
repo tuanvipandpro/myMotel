@@ -50,7 +50,7 @@ public class HomeController {
     
     @RequestMapping(value = "/makeBillRoom")
     public String goCalculateMonthFeePage () {
-        return "tinhtoantienphong";
+        return "calculateRoom";
     }
     
     @RequestMapping(value = "/viewTotal")
