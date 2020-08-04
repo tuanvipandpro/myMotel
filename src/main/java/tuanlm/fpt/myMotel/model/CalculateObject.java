@@ -26,4 +26,5 @@ public class CalculateObject implements Serializable{
     private int oldWater;
     private int newWater;
     private int roomPrice; 
+    private int statusID;
 }

@@ -5,15 +5,16 @@
  */
 package tuanlm.fpt.myMotel.repository;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import tuanlm.fpt.myMotel.model.Fee;
+import tuanlm.fpt.myMotel.model.Power;
 
 /**
  *
  * @author Tuan
  */
 @Repository
-public interface FeeRepository extends JpaRepository<Fee, Integer> {
-    Fee findFirstByOrderByIdDesc();
+public interface PowerRepository extends JpaRepository<Power, Integer>{
+    List<Power> findTop2ByRoomIdOrderByDateDesc(int room_id);
 }
