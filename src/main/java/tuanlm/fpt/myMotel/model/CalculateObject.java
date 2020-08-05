@@ -21,10 +21,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CalculateObject implements Serializable{
     private int roomId;
+    private String roomNumber;
     private int oldElectric;
     private int newElectric;
     private int oldWater;
     private int newWater;
     private int roomPrice; 
-    private int statusID;
+    private int statusId;
 }

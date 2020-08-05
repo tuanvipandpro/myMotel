@@ -44,7 +44,7 @@ public class CalculateService {
             }
             
             if (result == null) result = new ArrayList<>();
-            result.add(new CalculateObject(room.getId(), oldElectric, 0, oldWater, 0, room.getPrice(), room.getStatus_id()));
+            result.add(new CalculateObject(room.getId(), room.getRoom_number() , oldElectric, 0, oldWater, 0, room.getPrice(), room.getStatus_id()));
         }
         return result;
     }
