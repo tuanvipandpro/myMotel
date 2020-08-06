@@ -7,14 +7,17 @@ package tuanlm.fpt.myMotel.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tuanlm.fpt.myMotel.model.CalculateObject;
+import tuanlm.fpt.myMotel.model.Fee;
 import tuanlm.fpt.myMotel.model.Power;
 import tuanlm.fpt.myMotel.model.Room;
 import tuanlm.fpt.myMotel.repository.FeeRepository;
 import tuanlm.fpt.myMotel.repository.PowerRepository;
 import tuanlm.fpt.myMotel.repository.RoomRepository;
+import tuanlm.fpt.myMotel.utils.RequestHandler;
 
 
 /**
@@ -47,5 +50,14 @@ public class CalculateService {
             result.add(new CalculateObject(room.getId(), room.getRoom_number() , oldElectric, 0, oldWater, 0, room.getPrice(), room.getStatus_id()));
         }
         return result;
+    }
+    
+    public boolean calculateRoom (HttpServletRequest request, String owner) {
+        Fee fee = feeRepository.findFirstByOrderByIdDesc();
+        
+        List<CalculateObject> list = new RequestHandler().handleRequestToCalculate(request, getInformationToCalculate (owner));
+        
+        
+        return false;
     }
 }

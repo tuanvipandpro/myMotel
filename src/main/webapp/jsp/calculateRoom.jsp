@@ -18,35 +18,12 @@
         <link rel="stylesheet" type="text/css" href="resources/css/home.css">
         <link rel="stylesheet" type="text/css" href="resources/css/loader.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="resources/css/calculate.css" rel="stylesheet" type="text/css"/>
         <!--JS-->
         <script src="resources/js/loader.js"></script>
         <script src="resources/js/home.js"></script>
+        <script src="resources/js/calculate.js"></script>
         <title>Quản lý phòng</title>      
-        <style>
-            table {
-                border-collapse: collapse;
-                border-spacing: 0;
-                width: 100%;
-                border: 2px solid #ddd;
-            }
-            th, td {
-                text-align: left;
-                padding: 8px;
-            }   
-            th {
-                background-color: #17a2b8;
-                font-size: 16px;
-            }            
-            tr:nth-child(even){background-color: #b8daff}
-            td {
-                font-size: 16px;
-            }
-            input[type=number] {
-                width: 80%;
-                height: 30px;
-                font-size: 16px;
-            }            
-        </style>
     </head>
     <body onload="loader()">
         <div id="loader" class="loader"></div>
@@ -68,6 +45,7 @@
                     <h1>Tính tiền phòng</h1>
                     <c:if test="${not empty requestScope.LIST}">
                         <c:set var="list" value="${requestScope.LIST}"/>
+                        <form action="#" method="POST">
                         <table>
                             <thead>
                                 <tr>
@@ -85,24 +63,26 @@
                                 <c:forEach var="dto" items="${list}" varStatus="counter">
                                     <tr>
                                         <div id="${dto.roomId}">
-                                            <input type="hidden" name="roomId" value="${dto.roomId}" />
+                                            <c:if test="${dto.statusId eq 5}">
+                                                <input type="hidden" name="roomId${dto.roomId}" value="${dto.roomId}" />
+                                            </c:if>                                            
                                             <td>${dto.roomNumber} </td>
                                             <td>${dto.oldElectric}</td>
                                             <td style="width: 12%">
                                                 <c:if test="${dto.statusId eq 5}">
-                                                    <input type="number" name="newElectric" value="${dto.newElectric}" min="${dto.oldElectric}"/>
+                                                    <input type="number" id="newElectric${dto.roomId}" name="newElectric${dto.roomId}" value="${dto.newElectric}" min="${dto.oldElectric}"/>
                                                 </c:if>
                                                 <c:if test="${dto.statusId ne 5}">
-                                                    <input type="number" name="newElectric" value="${dto.newElectric}" min="${dto.oldElectric}" readonly/>
+                                                    ${dto.oldElectric}
                                                 </c:if>                                                    
                                             </td>
                                             <td>${dto.oldWater}</td>
                                             <td style="width: 12%">
                                                 <c:if test="${dto.statusId eq 5}">
-                                                    <input type="number" name="newElectric" value="${dto.newWater}"  min="${dto.oldWater}"/>
+                                                    <input type="number" name=""newWater${dto.roomId}" id="newWater${dto.roomId}" value="${dto.newWater}"  min="${dto.oldWater}"/>
                                                 </c:if>
                                                 <c:if test="${dto.statusId ne 5}">
-                                                    <input type="number" name="newElectric" value="${dto.newWater}"  min="${dto.oldWater}" readonly/>
+                                                    ${dto.oldWater}
                                                 </c:if>                                                
                                             </td>
                                             <td>${dto.roomPrice}</td>
@@ -115,14 +95,20 @@
                                                 </c:if>                                                
                                             </td>
                                             <td>
-                                                <button onclick="return false">Check</button>
+                                                <c:if test="${dto.statusId eq 5}">
+                                                    <button class="check-button" onclick="return doCheck(${dto.oldElectric},${dto.oldWater},${dto.roomId})">Check</button>
+                                                </c:if>
+                                                <c:if test="${dto.statusId ne 5}">
+                                                    <button class="check-button" onclick="return doCheck(${dto.oldElectric},${dto.oldWater},${dto.roomId})" disabled>Check</button>
+                                                </c:if>  
                                             </td>
                                         </div>                                  
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
-                        <button>Confirm</button>
+                            <button class="confirm-button">Xác Nhận</button>
+                        </form>    
                     </c:if>
                     <c:if test="${empty requestScope.LIST}">
                         <h3>Không có phòng trọ để tính</h3>
