@@ -16,12 +16,15 @@ import tuanlm.fpt.myMotel.model.CalculateObject;
 public class RequestHandler {
     public List<CalculateObject> handleRequestToCalculate (HttpServletRequest request, List<CalculateObject> list) {
         for (CalculateObject calculateObject : list) {
-            // get param
-            int newElectric = Integer.parseInt(request.getParameter("newElectric" + calculateObject.getRoomId()));
-            int newWater = Integer.parseInt(request.getParameter("newWater" + calculateObject.getRoomId()));
-            // set param
-            calculateObject.setNewElectric(newElectric);
-            calculateObject.setNewWater(newWater);
+            if (calculateObject.getStatusId() != Constant.FREE) {
+                // không truyền water
+                // get param
+                int newElectric = Integer.parseInt(request.getParameter("newElectric" + calculateObject.getRoomId()));
+                int newWater = Integer.parseInt(request.getParameter("newWater" + calculateObject.getRoomId()));
+                // set param
+                calculateObject.setNewElectric(newElectric);
+                calculateObject.setNewWater(newWater);                
+            }
         }
         
         return list;

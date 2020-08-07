@@ -45,7 +45,7 @@
                     <h1>Tính tiền phòng</h1>
                     <c:if test="${not empty requestScope.LIST}">
                         <c:set var="list" value="${requestScope.LIST}"/>
-                        <form action="#" method="POST">
+                        <form action="calculateRoom" method="POST">
                         <table>
                             <thead>
                                 <tr>
@@ -70,7 +70,7 @@
                                             <td>${dto.oldElectric}</td>
                                             <td style="width: 12%">
                                                 <c:if test="${dto.statusId eq 5}">
-                                                    <input type="number" id="newElectric${dto.roomId}" name="newElectric${dto.roomId}" value="${dto.newElectric}" min="${dto.oldElectric}"/>
+                                                    <input type="number" id="newElectric${dto.roomId}" name="newElectric${dto.roomId}" value="${dto.oldElectric + 1}" min="${dto.oldElectric + 1}"/>
                                                 </c:if>
                                                 <c:if test="${dto.statusId ne 5}">
                                                     ${dto.oldElectric}
@@ -79,7 +79,7 @@
                                             <td>${dto.oldWater}</td>
                                             <td style="width: 12%">
                                                 <c:if test="${dto.statusId eq 5}">
-                                                    <input type="number" name=""newWater${dto.roomId}" id="newWater${dto.roomId}" value="${dto.newWater}"  min="${dto.oldWater}"/>
+                                                    <input type="number" name="newWater${dto.roomId}" id="newWater${dto.roomId}" value="${dto.oldWater + 1}"  min="${dto.oldWater + 1}"/>
                                                 </c:if>
                                                 <c:if test="${dto.statusId ne 5}">
                                                     ${dto.oldWater}

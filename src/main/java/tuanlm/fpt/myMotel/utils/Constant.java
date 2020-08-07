@@ -13,4 +13,13 @@ import org.apache.log4j.Logger;
  */
 public class Constant {
     public static final Logger logger = Logger.getLogger(Constant.class.getName());
+    
+    // Status 
+    public static final int ACTIVE = 1;
+    public static final int INACTIVE = 2;
+    public static final int COME = 3;
+    public static final int OUT = 4;
+    public static final int RENTED = 5;
+    public static final int FREE = 6;
+    public static final int DELETED = 7;
 }

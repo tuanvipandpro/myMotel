@@ -25,18 +25,22 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Fee implements Serializable{
+public class Bill implements Serializable{
     @Id
     @GeneratedValue
-    @Column(name = "ID", nullable = false)    
+    @Column(name = "ID", nullable = false)
     private int id;
-    @Column(name = "Electric", nullable = false)
-    private int electric;
-    @Column(name = "Water", nullable = false)
-    private int water;
-    @Column(name = "Other", nullable = false)
-    private int other;
+    @Column(name = "Total", nullable = false)
+    private int total;
     @Temporal(TemporalType.DATE)
     @Column(name = "Date", nullable = false)
     private Date date;
+    @Column(name = "Status_ID", nullable = false)
+    private int statusId;
+
+    public Bill(int total, Date date, int statusId) {
+        this.total = total;
+        this.date = date;
+        this.statusId = statusId;
+    }
 }

@@ -32,8 +32,4 @@ public class HashUtils {
         String result = DatatypeConverter.printHexBinary(hash);
         return result;
     }
-    
-    public static void main(String[] args) {
-        System.out.println("Hash Pass (1) : " + new HashUtils().getHashString("123456"));
-    }
 }
