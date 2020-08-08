@@ -71,14 +71,17 @@ public class CalculateService {
         for (CalculateObject c : list) {
             if (c.getStatusId() == Constant.RENTED) {
                 detailsRepository.save(new Details(billRepository.save(
-                    new Bill(CalculateUtils.getTotal(c, fee.getElectric(), fee.getWater(), fee.getOther()), date , Constant.ACTIVE )).getId(), 
+                    new Bill(CalculateUtils.getTotal(c, fee.getElectric(), fee.getWater(), fee.getOther()), date , Constant.ACTIVE, owner )).getId(), 
                     c.getRoomId(),
                     CalculateUtils.getElectricNumber(c), 
                     CalculateUtils.getWaterNumber(c) 
-                ));                
+                ));
+                
+                powerRepository.save(new Power(c.getRoomId(), c.getNewElectric(), date, Constant.ELECTRIC));
+                powerRepository.save(new Power(c.getRoomId(), c.getNewWater(), date, Constant.WATER));
             }
         }
         
-        return false;
+        return (list != null);
     }
 }

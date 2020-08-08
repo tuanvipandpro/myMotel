@@ -39,4 +39,11 @@ public class Power implements Serializable{
     private Date date;
     @Column(name = "Category_ID", nullable = false)
     private int category_id;
+
+    public Power(int roomId, int number, Date date, int category_id) {
+        this.roomId = roomId;
+        this.number = number;
+        this.date = date;
+        this.category_id = category_id;
+    }
 }

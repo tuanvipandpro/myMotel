@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import tuanlm.fpt.myMotel.model.Account;
+import tuanlm.fpt.myMotel.model.Bill;
 import tuanlm.fpt.myMotel.model.CalculateObject;
 import tuanlm.fpt.myMotel.service.AccountService;
+import tuanlm.fpt.myMotel.service.BillService;
 import tuanlm.fpt.myMotel.service.CalculateService;
 import tuanlm.fpt.myMotel.service.RoomService;
 
@@ -32,6 +34,8 @@ public class HomeController {
     RoomService roomService;
     @Autowired
     CalculateService calculateService;
+    @Autowired
+    BillService billService;
     
     @PostMapping(value = "/changePassword")
     public String doChangePassword (@RequestParam String username, @RequestParam String password, Model model) {
@@ -54,9 +58,9 @@ public class HomeController {
     }
     
     @RequestMapping(value = "/makeBillRoom")
-    public String goCalculateMonthFeePage (HttpServletRequest request, HttpSession session) {
-        if (session != null) {
-            Account acc = (Account) session.getAttribute("USER");
+    public String goCalculateMonthFeePage (HttpServletRequest request) {
+        if (request.getSession(false) != null) {
+            Account acc = (Account) request.getSession(false).getAttribute("USER");
             List<CalculateObject> list = calculateService.getInformationToCalculate(acc.getUsername());
             request.setAttribute("LIST", list);
         }
@@ -64,7 +68,12 @@ public class HomeController {
     }
     
     @RequestMapping(value = "/viewTotal")
-    public String goViewBillPage () {
-        return "xemdoanhthu";
+    public String goViewBillPage (HttpServletRequest request) {
+        if (request.getSession(false) != null) {
+            Account acc = (Account) request.getSession(false).getAttribute("USER");
+            request.setAttribute("LIST", billService.getBillListByPageNo(acc.getUsername(), 0));
+            request.setAttribute("NUMBER_PAGE", billService.getCountPage());
+        }        
+        return "viewBill";
     }    
 }

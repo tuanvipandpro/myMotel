@@ -5,6 +5,8 @@
  */
 package tuanlm.fpt.myMotel.repository;
 
+import java.util.List;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import tuanlm.fpt.myMotel.model.Bill;
 
@@ -13,5 +15,5 @@ import tuanlm.fpt.myMotel.model.Bill;
  * @author Tuan
  */
 public interface BillRepository extends JpaRepository<Bill, Integer>{
-    
+    List<Bill> findAllByOwnerOrderByDateDesc (String owner, Pageable pageable);
 }

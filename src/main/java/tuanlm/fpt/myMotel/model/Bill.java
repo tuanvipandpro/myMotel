@@ -37,10 +37,19 @@ public class Bill implements Serializable{
     private Date date;
     @Column(name = "Status_ID", nullable = false)
     private int statusId;
+    @Column(name = "Owner", nullable = false, length = 50)
+    private String owner;
 
-    public Bill(int total, Date date, int statusId) {
+//    public Bill(int total, Date date, int statusId) {
+//        this.total = total;
+//        this.date = date;
+//        this.statusId = statusId;
+//    }
+
+    public Bill(int total, Date date, int statusId, String owner) {
         this.total = total;
         this.date = date;
         this.statusId = statusId;
+        this.owner = owner;
     }
 }
