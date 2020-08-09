@@ -15,7 +15,7 @@ public class Constant {
     public static final Logger logger = Logger.getLogger(Constant.class.getName());
     
     //Paging Record
-    public static final int PAGE_LINE_NUMBER = 5;
+    public static final int PAGE_LINE_NUMBER = 1;
     // Status 
     public static final int ACTIVE = 1;
     public static final int INACTIVE = 2;

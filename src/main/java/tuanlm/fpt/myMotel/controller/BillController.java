@@ -5,10 +5,31 @@
  */
 package tuanlm.fpt.myMotel.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import tuanlm.fpt.myMotel.model.Account;
+import tuanlm.fpt.myMotel.service.BillService;
+
 /**
  *
  * @author Tuan
  */
+@Controller
 public class BillController {
+    @Autowired
+    BillService billService;    
     
+    @RequestMapping(value = "/viewTotalByPageNo")
+    public String goViewBillPage (HttpServletRequest request, @RequestParam int pageNo) {
+        if (request.getSession(false) != null) {
+            Account acc = (Account) request.getSession(false).getAttribute("USER");
+            request.setAttribute("LIST", billService.getBillListByPageNo(acc.getUsername(), pageNo - 1));
+            request.setAttribute("NUMBER_PAGE", billService.getCountPage());
+            request.setAttribute("PAGE_NO", pageNo);
+        }        
+        return "viewBill";
+    }     
 }

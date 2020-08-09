@@ -73,6 +73,7 @@ public class HomeController {
             Account acc = (Account) request.getSession(false).getAttribute("USER");
             request.setAttribute("LIST", billService.getBillListByPageNo(acc.getUsername(), 0));
             request.setAttribute("NUMBER_PAGE", billService.getCountPage());
+            request.setAttribute("PAGE_NO", 1);
         }        
         return "viewBill";
     }    
