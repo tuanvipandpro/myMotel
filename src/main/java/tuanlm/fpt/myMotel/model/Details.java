@@ -35,11 +35,14 @@ public class Details implements Serializable{
     private int electricNumber;
     @Column(name = "WaterNumber", nullable = false)
     private int waterNumber;
+    @Column(name = "Total", nullable = false)
+    private int total;
 
-    public Details(int billId, int roomId, int electricNumber, int waterNumber) {
+    public Details(int billId, int roomId, int electricNumber, int waterNumber, int total) {
         this.billId = billId;
         this.roomId = roomId;
         this.electricNumber = electricNumber;
         this.waterNumber = waterNumber;
+        this.total = total;
     }
 }

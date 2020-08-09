@@ -67,20 +67,22 @@ public class CalculateService {
         Date date = new Date();
         Fee fee = feeRepository.findFirstByOrderByIdDesc();
         List<CalculateObject> list = new RequestHandler().handleRequestToCalculate(request, getInformationToCalculate (owner));
+
+        Bill bill = billRepository.save(new Bill(0, date, Constant.ACTIVE, owner));
+        int total = 0;
         
         for (CalculateObject c : list) {
             if (c.getStatusId() == Constant.RENTED) {
-                detailsRepository.save(new Details(billRepository.save(
-                    new Bill(CalculateUtils.getTotal(c, fee.getElectric(), fee.getWater(), fee.getOther()), date , Constant.ACTIVE, owner )).getId(), 
-                    c.getRoomId(),
-                    CalculateUtils.getElectricNumber(c), 
-                    CalculateUtils.getWaterNumber(c) 
-                ));
-                
+                int totalDetail = CalculateUtils.getTotal(c, fee.getElectric(), fee.getWater(), fee.getOther());
+                detailsRepository.save(new Details(bill.getId(), c.getRoomId(), CalculateUtils.getElectricNumber(c), CalculateUtils.getWaterNumber(c), totalDetail));
                 powerRepository.save(new Power(c.getRoomId(), c.getNewElectric(), date, Constant.ELECTRIC));
                 powerRepository.save(new Power(c.getRoomId(), c.getNewWater(), date, Constant.WATER));
+                total = total + totalDetail;
             }
         }
+        
+        bill.setTotal(total);
+        billRepository.save(bill);
         
         return (list != null);
     }
