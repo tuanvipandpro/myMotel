@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 18, 2020, 8:31:52 PM
+    Author     : Tuan
+*/
+input[type=submit] {
+    width: 20%;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input[type=text], input[type=date], input[type=email] {
+    width: 20%;
+    height: 30px;
+    font-size: 16px;
+}
+
+select, option {
+    width: 10%;
+    height: 30px;
+    font-size: 16px;
+}
