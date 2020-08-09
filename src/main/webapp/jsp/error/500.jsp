@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="resources/error-css/403.css" type="text/css"/>
-    <title>403 - Denied Access !!!</title>
+    <title>500 - SERVER ERROR !!!</title>
 </head>
 <body>
     <div class="maincontainer">
@@ -41,7 +41,7 @@
         <img class="foregroundimg" src="https://www.blissfullemon.com/wp-content/uploads/2018/09/HauntedHouseForeground.png" alt="haunted house">
         
       </div>
-      <h1 class="errorcode">ERROR 403</h1>
-      <div class="errortext">This area is forbidden. Turn back now!</div>
+      <h1 class="errorcode">ERROR 500</h1>
+      <div class="errortext">SERVER ERROR</div>
 </body>
 </html>

@@ -15,5 +15,6 @@ import tuanlm.fpt.myMotel.model.Bill;
  * @author Tuan
  */
 public interface BillRepository extends JpaRepository<Bill, Integer>{
-    List<Bill> findAllByOwnerOrderByDateDesc (String owner, Pageable pageable);
+    List<Bill> findAllByOwnerAndStatusIdOrderByDateDesc (String owner, int statusId, Pageable pageable);
+    Bill findById (int id);
 }

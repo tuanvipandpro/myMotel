@@ -27,7 +27,7 @@ public class CalculateController {
         HttpSession session = request.getSession(false);
         if (session != null) {
             Account account = (Account) session.getAttribute("USER");
-            return calculateService.calculateRoom(request, account.getUsername()) ? "success" : "error";
+            return calculateService.makeBill(request, account.getUsername()) ? "success" : "error";
         }
         else return "error";
     }

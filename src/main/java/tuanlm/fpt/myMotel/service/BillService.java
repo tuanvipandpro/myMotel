@@ -23,7 +23,7 @@ public class BillService {
     BillRepository billRepository;
     
     public List<Bill> getBillListByPageNo (String owner, int pageNo) {
-        return billRepository.findAllByOwnerOrderByDateDesc(owner, PageRequest.of(pageNo, Constant.PAGE_LINE_NUMBER));
+        return billRepository.findAllByOwnerAndStatusIdOrderByDateDesc(owner, 1 ,PageRequest.of(pageNo, Constant.PAGE_LINE_NUMBER));
     }
     
     public long getCountPage () {

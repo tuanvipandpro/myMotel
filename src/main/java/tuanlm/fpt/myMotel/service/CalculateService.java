@@ -26,13 +26,13 @@ import tuanlm.fpt.myMotel.utils.CalculateUtils;
 import tuanlm.fpt.myMotel.utils.Constant;
 import tuanlm.fpt.myMotel.utils.RequestHandler;
 
-
 /**
  *
  * @author Tuan
  */
 @Service
 public class CalculateService {
+
     @Autowired
     RoomRepository roomRepository;
     @Autowired
@@ -43,47 +43,56 @@ public class CalculateService {
     BillRepository billRepository;
     @Autowired
     DetailsRepository detailsRepository;
-    
-    public List<CalculateObject> getInformationToCalculate (String owner) {
+
+    public List<CalculateObject> getInformationToCalculate(String owner) {
         List<CalculateObject> result = null;
         for (Room room : roomRepository.findByOwner(owner)) {
             List<Power> powerList = powerRepository.findTop2ByRoomIdOrderByDateDesc(room.getId());
-            
+
             int oldElectric = 0;
             int oldWater = 0;
-            
+
             for (Power power : powerList) {
-                if (power.getCategory_id() == 1) oldElectric = power.getNumber();
-                if (power.getCategory_id() == 2) oldWater = power.getNumber();
+                if (power.getCategory_id() == 1) {
+                    oldElectric = power.getNumber();
+                }
+                if (power.getCategory_id() == 2) {
+                    oldWater = power.getNumber();
+                }
             }
-            
-            if (result == null) result = new ArrayList<>();
-            result.add(new CalculateObject(room.getId(), room.getRoom_number() , oldElectric, 0, oldWater, 0, room.getPrice(), room.getStatus_id()));
+
+            if (result == null) {
+                result = new ArrayList<>();
+            }
+            result.add(new CalculateObject(room.getId(), room.getRoom_number(), oldElectric, 0, oldWater, 0, room.getPrice(), room.getStatus_id()));
         }
         return result;
     }
-    
-    public boolean calculateRoom (HttpServletRequest request, String owner) {
-        Date date = new Date();
-        Fee fee = feeRepository.findFirstByOrderByIdDesc();
-        List<CalculateObject> list = new RequestHandler().handleRequestToCalculate(request, getInformationToCalculate (owner));
 
-        Bill bill = billRepository.save(new Bill(0, date, Constant.ACTIVE, owner));
+    public boolean makeBill(HttpServletRequest request, String owner) {
+        Fee fee = feeRepository.findFirstByOrderByIdDesc();
+        List<CalculateObject> list = new RequestHandler().handleRequestToCalculate(request, getInformationToCalculate(owner));
+
+        Bill bill = billRepository.save(new Bill(0, new Date(), Constant.ACTIVE, owner));
+        setDetailToBill(bill, fee, list);
+
+        return (list != null);
+    }
+
+    private void setDetailToBill(Bill bill, Fee fee, List<CalculateObject> list) {
         int total = 0;
-        
         for (CalculateObject c : list) {
             if (c.getStatusId() == Constant.RENTED) {
                 int totalDetail = CalculateUtils.getTotal(c, fee.getElectric(), fee.getWater(), fee.getOther());
                 detailsRepository.save(new Details(bill.getId(), c.getRoomId(), CalculateUtils.getElectricNumber(c), CalculateUtils.getWaterNumber(c), totalDetail));
-                powerRepository.save(new Power(c.getRoomId(), c.getNewElectric(), date, Constant.ELECTRIC));
-                powerRepository.save(new Power(c.getRoomId(), c.getNewWater(), date, Constant.WATER));
+                powerRepository.save(new Power(c.getRoomId(), c.getNewElectric(), new Date(), Constant.ELECTRIC));
+                powerRepository.save(new Power(c.getRoomId(), c.getNewWater(), new Date(), Constant.WATER));
                 total = total + totalDetail;
             }
         }
         
-        bill.setTotal(total);
-        billRepository.save(bill);
-        
-        return (list != null);
+        Bill b = billRepository.findById(bill.getId());
+        b.setTotal(total);
+        billRepository.save(b);        
     }
 }

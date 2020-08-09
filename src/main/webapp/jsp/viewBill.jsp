@@ -63,32 +63,30 @@
                             </thead>
                             <tbody>
                                 <c:forEach items="${requestScope.LIST}" var="bill" varStatus="counter">
-                                    <form action="viewDetailBill">
-                                        <input type="hidden" name="billId" value="${bill.id}"/>
-                                        <c:if test="${bill.statusId eq 1}">
-                                            <tr>
-                                                <td>${counter.count + requestScope.PAGE_NO * 1 - 1}</td>
-                                                <td>${bill.id}</td>
-                                                <td>${bill.total}</td>
-                                                <td>${bill.date}</td>
-                                                <td><input type="submit" value="Chi Tiết" /> </td>
-                                            </tr>                                        
-                                        </c:if>
-                                    </form>
-                                </c:forEach>                                 
+                                <form action="viewDetailBill">
+                                    <input type="hidden" name="billId" value="${bill.id}"/>
+                                    <tr>
+                                        <td>${counter.count + requestScope.PAGE_NO * 1 - 1}</td>
+                                        <td>${bill.id}</td>
+                                        <td>${bill.total}</td>
+                                        <td>${bill.date}</td>
+                                        <td><input type="submit" value="Chi Tiết" /> </td>
+                                    </tr>  
+                                </form>
+                            </c:forEach>                                 
                             </tbody>
                         </table>                             
                         <div class="pagination">
-                          <!-- <a href="#">&laquo;</a> -->
+                            <!-- <a href="#">&laquo;</a> -->
                             <c:forEach begin="1" end="${requestScope.NUMBER_PAGE}" var="pageNo" step="1">
                                 <c:if test="${requestScope.PAGE_NO eq pageNo}"><a class="active" href="#">${pageNo}</a></c:if>
                                 <c:if test="${requestScope.PAGE_NO ne pageNo}"><a href="viewTotalByPageNo?pageNo=${pageNo}">${pageNo}</a></c:if>
                             </c:forEach>                           
-                          <!-- <a href="#">&raquo;</a> -->
+                            <!-- <a href="#">&raquo;</a> -->
                         </div>                              
                     </c:if>
                     <c:if test="${empty requestScope.LIST}">
-                        <h3>Bạn không thể xem hóa đơn !!!</h3>
+                        <h3>Không có hóa đơn nào hợp lệ !!!</h3>
                     </c:if>                                 
                 </div>
             </div>

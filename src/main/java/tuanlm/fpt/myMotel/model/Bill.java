@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,7 +28,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Bill implements Serializable{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private int id;
     @Column(name = "Total", nullable = false)
@@ -39,12 +40,6 @@ public class Bill implements Serializable{
     private int statusId;
     @Column(name = "Owner", nullable = false, length = 50)
     private String owner;
-
-//    public Bill(int total, Date date, int statusId) {
-//        this.total = total;
-//        this.date = date;
-//        this.statusId = statusId;
-//    }
 
     public Bill(int total, Date date, int statusId, String owner) {
         this.total = total;

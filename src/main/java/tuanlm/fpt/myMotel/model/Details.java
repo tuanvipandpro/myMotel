@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,16 +25,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Details implements Serializable{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)      
     private int id;
     @Column(name = "Bill_ID", nullable = false)
     private int billId;
     @Column(name = "Room_ID", nullable = false)
     private int roomId;
-    @Column(name = "ElectricNumber", nullable = false)
+    @Column(name = "Electric_Number", nullable = false)
     private int electricNumber;
-    @Column(name = "WaterNumber", nullable = false)
+    @Column(name = "Water_Number", nullable = false)
     private int waterNumber;
     @Column(name = "Total", nullable = false)
     private int total;
