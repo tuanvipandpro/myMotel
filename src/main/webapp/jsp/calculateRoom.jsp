@@ -107,7 +107,7 @@
                                 </c:forEach>
                             </tbody>
                         </table>
-                            <button class="confirm-button">Xác Nhận</button>
+                            <button class="confirm-button" onclick="return confirm('Bạn có chắc chắn muốn tính tiền những phòng trọ này ?')">Xác Nhận</button>
                         </form>    
                     </c:if>
                     <c:if test="${empty requestScope.LIST}">

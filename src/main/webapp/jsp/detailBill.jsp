@@ -1,5 +1,5 @@
 <%-- 
-    Document   : home
+    Document   : calculateRoom
     Created on : Jul 4, 2020, 9:32:42 PM
     Author     : Tuan
 --%>
@@ -18,10 +18,12 @@
         <link rel="stylesheet" type="text/css" href="resources/css/home.css">
         <link rel="stylesheet" type="text/css" href="resources/css/loader.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="resources/css/calculate.css" rel="stylesheet" type="text/css"/>
         <!--JS-->
         <script src="resources/js/loader.js"></script>
         <script src="resources/js/home.js"></script>
-        <title>Quản lý phòng</title>       
+        <script src="resources/js/calculate.js"></script>
+        <title>Quản lý phòng</title>      
     </head>
     <body onload="loader()">
         <div id="loader" class="loader"></div>
@@ -29,32 +31,23 @@
             <div class="home-container">
                 <div class="left" style="background-color:#bbb;">
                     <h2>Menu</h2>
-                    <input type="text" id="mySearch" onkeyup="searchMenu()" placeholder="Tìm kiếm..." title="Tìm kiếm">
+                    <input style="height: auto" type="text" id="mySearch" onkeyup="searchMenu()" placeholder="Tìm kiếm..." title="Tìm kiếm">
                     <ul id="myMenu">
                         <li><a href="home">Tài khoản</a></li>
                         <li><a href="roomMaganement">Quản lý phòng</a></li>
                         <li><a href="makeBillRoom">Tính tiền phòng</a></li>
                         <li><a href="viewTotal">Doanh Thu</a></li>
                         <li><a href="introduce">Hướng dẫn</a></li>
-                        <li style="background-color: #eee;"><a href="#">Chi Tiết Phòng</a></li>
                     </ul>
                 </div>
 
                 <div class="right" style="background-color:#eee;">
-                    <c:if test="${not empty requestScope.ROOM}">
-                        <c:set var="room" value="${requestScope.ROOM}" />
-                        <c:set var="customerList" value="${requestScope.CUSTOMER_LIST}" />
-                        <h1 style="text-decoration: underline">Phòng : ${room.room_number}</h1>
-                        <h3>- Quản lý : ${sessionScope.USER.fullname}</h3>
-                        <h3>
-                            - Trạng thái : 
-                            <c:if test="${room.status_id eq 5}">Cho thuê</c:if>
-                            <c:if test="${room.status_id eq 6}">Đang trống</c:if>
-                        </h3>
-                        <c:if test="${room.status_id eq 5}">
-                            <h3>- Khách thuê : </h3>
-                            <c:forEach items="${customerList}" var="customer">
-                                <h3 style="margin-left: 5%">+ <a href="view-customer?id=${customer.id}">${customer.name}</a> </h3>
+                    <c:if test="${not empty requestScope.BILL}">
+                        <h1>BILL : ${requestScope.BILL.id}</h1>
+                        <h2>Total : ${requestScope.BILL.total}</h2>
+                        <c:if test="${not empty requestScope.DETAILS_LIST}">
+                            <c:forEach var="details" items="${requestScope.DETAILS_LIST}" varStatus="counter">
+                                <h3>Room : ${details.roomId} - Electric : ${details.electricNumber} - Water : ${details.waterNumber} - Total : ${details.total}</h3>
                             </c:forEach>
                         </c:if>
                     </c:if>
