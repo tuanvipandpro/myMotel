@@ -23,7 +23,21 @@
         <script src="resources/js/loader.js"></script>
         <script src="resources/js/home.js"></script>
         <script src="resources/js/calculate.js"></script>
-        <title>Quản lý phòng</title>      
+        <title>Quản lý phòng</title>  
+        <style>
+            .details ul {
+              list-style-type: none;
+              padding: 0;
+              margin: 0;
+            }
+
+            .details ul li {
+              border: 1px solid #ddd;
+              margin-top: -1px; /* Prevent double borders */
+              background-color: #f6f6f6;
+              padding: 12px;
+            }            
+        </style>
     </head>
     <body onload="loader()">
         <div id="loader" class="loader"></div>
@@ -41,15 +55,20 @@
                     </ul>
                 </div>
 
-                <div class="right" style="background-color:#eee;">
+                <div class="right details" style="background-color:#eee;">
                     <c:if test="${not empty requestScope.BILL}">
-                        <h1>BILL : ${requestScope.BILL.id}</h1>
-                        <h2>Total : ${requestScope.BILL.total}</h2>
+                        <h1>Mã hóa đơn : ${requestScope.BILL.id}</h1>
+                        <h2>Tổng tiền : ${requestScope.BILL.total}</h2>
                         <c:if test="${not empty requestScope.DETAILS_LIST}">
-                            <c:forEach var="details" items="${requestScope.DETAILS_LIST}" varStatus="counter">
-                                <h3>Room : ${details.roomId} - Electric : ${details.electricNumber} - Water : ${details.waterNumber} - Total : ${details.total}</h3>
-                            </c:forEach>
+                            <ul>
+                                <c:forEach var="details" items="${requestScope.DETAILS_LIST}" varStatus="counter">
+                                    <li>Mã phòng : ${details.roomId} - Số điện : ${details.electricNumber} - Số nước : ${details.waterNumber} - Tổng : ${details.total}</li>
+                                </c:forEach>                                
+                            </ul>
                         </c:if>
+                    </c:if>
+                    <c:if test="${empty requestScope.BILL}">
+                        <h3>Hóa đơn không hợp lệ, hãy kiểm tra lại !!!</h3>
                     </c:if>
                 </div>
             </div>
