@@ -1,0 +1,108 @@
+2020-08-11 19:45:56.027  INFO 2388 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : Starting MyMotelApplication on SE130138 with PID 2388 (D:\GitHub\myMotel\target\classes started by Tuan in D:\GitHub\myMotel)
+2020-08-11 19:45:56.041  INFO 2388 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : No active profile set, falling back to default profiles: default
+2020-08-11 19:45:57.153  INFO 2388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-08-11 19:45:57.278  INFO 2388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111ms. Found 8 JPA repository interfaces.
+2020-08-11 19:45:58.277  INFO 2388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2020-08-11 19:45:58.292  INFO 2388 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-11 19:45:58.293  INFO 2388 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-11 19:45:58.683  INFO 2388 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-08-11 19:45:58.688  INFO 2388 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-11 19:45:58.689  INFO 2388 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2538 ms
+2020-08-11 19:45:58.971  INFO 2388 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-11 19:45:58.983  INFO 2388 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-11 19:45:59.957  INFO 2388 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-11 19:46:00.252  INFO 2388 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-11 19:46:00.333  INFO 2388 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-08-11 19:46:00.452  WARN 2388 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-11 19:46:00.724  INFO 2388 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-11 19:46:00.958  INFO 2388 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+2020-08-11 19:46:01.144  INFO 2388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2020-08-11 19:46:01.147  INFO 2388 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-08-11 19:46:02.521  INFO 2388 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-11 19:46:02.542  INFO 2388 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-11 19:46:03.137  INFO 2388 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-08-11 19:46:03.152  INFO 2388 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : Started MyMotelApplication in 7.696 seconds (JVM running for 8.216)
+2020-08-11 20:05:16.491  INFO 2388 --- [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-11 20:05:16.492  INFO 2388 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-11 20:05:16.505  INFO 2388 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-08-11 20:41:02.501  INFO 8616 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : Starting MyMotelApplication on SE130138 with PID 8616 (D:\GitHub\myMotel\target\classes started by Tuan in D:\GitHub\myMotel)
+2020-08-11 20:41:02.507  INFO 8616 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : No active profile set, falling back to default profiles: default
+2020-08-11 20:41:04.051  INFO 8616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-08-11 20:41:04.241  INFO 8616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 176ms. Found 8 JPA repository interfaces.
+2020-08-11 20:41:05.697  INFO 8616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2020-08-11 20:41:05.732  INFO 8616 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-11 20:41:05.733  INFO 8616 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-11 20:41:06.333  INFO 8616 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-08-11 20:41:06.340  INFO 8616 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-11 20:41:06.341  INFO 8616 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3753 ms
+2020-08-11 20:41:06.846  INFO 8616 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-11 20:41:06.862  INFO 8616 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-11 20:41:07.796  INFO 8616 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-11 20:41:08.055  INFO 8616 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-11 20:41:08.129  INFO 8616 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-08-11 20:41:08.177  WARN 8616 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-11 20:41:08.338  INFO 8616 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-11 20:41:08.613  INFO 8616 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+2020-08-11 20:41:08.886  INFO 8616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2020-08-11 20:41:08.888  INFO 8616 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-08-11 20:41:10.293  INFO 8616 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-11 20:41:10.305  INFO 8616 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-11 20:41:11.220  INFO 8616 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-08-11 20:41:11.258  INFO 8616 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : Started MyMotelApplication in 9.581 seconds (JVM running for 10.447)
+2020-08-11 20:41:39.466  INFO 8616 --- [http-nio-8084-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-11 20:41:39.467  INFO 8616 --- [http-nio-8084-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-11 20:41:39.477  INFO 8616 --- [http-nio-8084-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-08-11 20:44:40.812  INFO 11484 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : Starting MyMotelApplication on SE130138 with PID 11484 (D:\GitHub\myMotel\target\classes started by Tuan in D:\GitHub\myMotel)
+2020-08-11 20:44:40.816  INFO 11484 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : No active profile set, falling back to default profiles: default
+2020-08-11 20:44:41.847  INFO 11484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-08-11 20:44:42.005  INFO 11484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143ms. Found 8 JPA repository interfaces.
+2020-08-11 20:44:43.169  INFO 11484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2020-08-11 20:44:43.188  INFO 11484 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-11 20:44:43.189  INFO 11484 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-11 20:44:43.686  INFO 11484 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-08-11 20:44:43.695  INFO 11484 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-11 20:44:43.696  INFO 11484 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2817 ms
+2020-08-11 20:44:44.052  INFO 11484 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-11 20:44:44.064  INFO 11484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-11 20:44:44.869  INFO 11484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-11 20:44:45.061  INFO 11484 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-11 20:44:45.134  INFO 11484 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-08-11 20:44:45.205  WARN 11484 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-11 20:44:45.311  INFO 11484 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-11 20:44:45.474  INFO 11484 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+2020-08-11 20:44:45.779  INFO 11484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2020-08-11 20:44:45.782  INFO 11484 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-08-11 20:44:46.651  INFO 11484 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-11 20:44:46.663  INFO 11484 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-11 20:44:47.327  INFO 11484 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-08-11 20:44:47.340  INFO 11484 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : Started MyMotelApplication in 7.143 seconds (JVM running for 7.87)
+2020-08-11 20:51:50.379  INFO 11484 --- [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-11 20:51:50.379  INFO 11484 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-11 20:51:50.388  INFO 11484 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-08-11 20:53:07.759  INFO 4204 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : Starting MyMotelApplication on SE130138 with PID 4204 (D:\GitHub\myMotel\target\classes started by Tuan in D:\GitHub\myMotel)
+2020-08-11 20:53:07.762  INFO 4204 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : No active profile set, falling back to default profiles: default
+2020-08-11 20:53:09.580  INFO 4204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-08-11 20:53:10.002  INFO 4204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 409ms. Found 8 JPA repository interfaces.
+2020-08-11 20:53:12.434  INFO 4204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2020-08-11 20:53:12.457  INFO 4204 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-11 20:53:12.459  INFO 4204 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-11 20:53:12.987  INFO 4204 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-08-11 20:53:12.996  INFO 4204 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-11 20:53:12.996  INFO 4204 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5131 ms
+2020-08-11 20:53:13.492  INFO 4204 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-11 20:53:13.512  INFO 4204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-11 20:53:14.501  INFO 4204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-11 20:53:14.731  INFO 4204 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-11 20:53:14.808  INFO 4204 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-08-11 20:53:14.873  WARN 4204 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-11 20:53:15.005  INFO 4204 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-11 20:53:15.156  INFO 4204 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.SQLServer2012Dialect
+2020-08-11 20:53:15.420  INFO 4204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+2020-08-11 20:53:15.423  INFO 4204 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2020-08-11 20:53:16.312  INFO 4204 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-11 20:53:16.324  INFO 4204 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-11 20:53:17.058  INFO 4204 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2020-08-11 20:53:17.071  INFO 4204 --- [main] tuanlm.fpt.myMotel.MyMotelApplication    : Started MyMotelApplication in 10.153 seconds (JVM running for 11.116)
+2020-08-11 20:53:25.558  INFO 4204 --- [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-11 20:53:25.559  INFO 4204 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-11 20:53:25.571  INFO 4204 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms

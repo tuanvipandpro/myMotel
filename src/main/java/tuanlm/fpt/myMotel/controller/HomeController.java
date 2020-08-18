@@ -5,6 +5,7 @@
  */
 package tuanlm.fpt.myMotel.controller;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import tuanlm.fpt.myMotel.model.Account;
+import tuanlm.fpt.myMotel.model.Bill;
+import tuanlm.fpt.myMotel.model.CalculateObject;
 import tuanlm.fpt.myMotel.service.AccountService;
+import tuanlm.fpt.myMotel.service.BillService;
+import tuanlm.fpt.myMotel.service.CalculateService;
 import tuanlm.fpt.myMotel.service.RoomService;
 
 /**
@@ -27,6 +32,10 @@ public class HomeController {
     AccountService accountService;
     @Autowired
     RoomService roomService;
+    @Autowired
+    CalculateService calculateService;
+    @Autowired
+    BillService billService;
     
     @PostMapping(value = "/changePassword")
     public String doChangePassword (@RequestParam String username, @RequestParam String password, Model model) {
@@ -49,12 +58,23 @@ public class HomeController {
     }
     
     @RequestMapping(value = "/makeBillRoom")
-    public String goCalculateMonthFeePage () {
-        return "tinhtoantienphong";
+    public String goCalculateMonthFeePage (HttpServletRequest request) {
+        if (request.getSession(false) != null) {
+            Account acc = (Account) request.getSession(false).getAttribute("USER");
+            List<CalculateObject> list = calculateService.getInformationToCalculate(acc.getUsername());
+            request.setAttribute("LIST", list);
+        }
+        return "calculateRoom";
     }
     
     @RequestMapping(value = "/viewTotal")
-    public String goViewBillPage () {
-        return "xemdoanhthu";
+    public String goViewBillPage (HttpServletRequest request) {
+        if (request.getSession(false) != null) {
+            Account acc = (Account) request.getSession(false).getAttribute("USER");
+            request.setAttribute("LIST", billService.getBillListByPageNo(acc.getUsername(), 0));
+            request.setAttribute("NUMBER_PAGE", billService.getCountPage());
+            request.setAttribute("PAGE_NO", 1);
+        }        
+        return "viewBill";
     }    
 }

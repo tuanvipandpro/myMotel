@@ -19,7 +19,7 @@
         <i class="checkmark">✓</i>
       </div>
         <h1>Success</h1> 
-        <p>Nếu không tự động chuyển trang, hãy click vào đây !!!<br/><a href="/myMotel/home">Trang Chủ</a></p>
+        <p>Nếu không tự động chuyển trang, hãy click vào đây !!!<br/><a href="home">Trang Chủ</a></p>
       </div>
     </body>
 </html>

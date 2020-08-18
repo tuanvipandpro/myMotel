@@ -13,4 +13,18 @@ import org.apache.log4j.Logger;
  */
 public class Constant {
     public static final Logger logger = Logger.getLogger(Constant.class.getName());
+    
+    //Paging Record
+    public static final int PAGE_LINE_NUMBER = 1;
+    // Status 
+    public static final int ACTIVE = 1;
+    public static final int INACTIVE = 2;
+    public static final int COME = 3;
+    public static final int OUT = 4;
+    public static final int RENTED = 5;
+    public static final int FREE = 6;
+    public static final int DELETED = 7;
+    // Category
+    public static final int ELECTRIC = 1;
+    public static final int WATER = 2;
 }
