@@ -1,4 +1,6 @@
 *.sql
+*.log
+*.gz
 
 HELP.md
 target/
